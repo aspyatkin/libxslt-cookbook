@@ -1,15 +1,14 @@
-id = :libxslt
-include_recipe node[id][:package_manager]
+id = 'libxslt'
+include_recipe node[id]['package_manager']
 
-
-node[id][:packages].each do |pkg|
+node[id]['packages'].each do |pkg|
   package pkg do
     action :install
   end
 end
 
-if node[id][:install_devel] == true
-  node[id][:devel_packages].each do |pkg|
+if node[id]['install_devel']
+  node[id]['devel_packages'].each do |pkg|
     package pkg do
       action :install
     end
